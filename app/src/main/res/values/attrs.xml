@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Input">
+        <attr name="label" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="showVisibility" format="boolean" />
+    </declare-styleable>
+    
+    <declare-styleable name="TextButton">
+        <attr name="text" format="string" />
+        <attr name="type" format="string" />
+    </declare-styleable>
+</resources>

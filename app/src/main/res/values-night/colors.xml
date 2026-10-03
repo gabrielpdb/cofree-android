@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#191719</color>
+    <color name="medium">#272427</color>
+    <color name="surface">#363338</color>
+
+    <color name="green_cofree">#e4f824</color>
+    <color name="expense">#f64141</color>
+    <color name="income">#00c853</color>
+    <color name="credit">#ff830f</color>
+    <color name="transfer">#afafaf</color>
+
+    <color name="text_primary">#ffffff</color>
+    <color name="text_secondary">#afafaf</color>
+
+</resources>
