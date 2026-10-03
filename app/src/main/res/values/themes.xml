@@ -1,12 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Base.Theme.Cofree" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/text_primary</item>
+        <item name="colorPrimaryContainer">@color/text_primary</item>
+        <item name="colorAccent">@color/text_secondary</item>
         <item name="colorSurface">@color/surface</item>
         <item name="android:colorBackground">@color/primary</item>
 
     </style>
 
     <style name="Theme.Cofree" parent="Base.Theme.Cofree" />
+
+    <style name="ShapeAppearance.Cofree.Circle" parent="ShapeAppearance.Material3.Corner.Full" />
 
 </resources>

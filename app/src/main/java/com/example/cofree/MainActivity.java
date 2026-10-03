@@ -37,5 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(intent);
         });
+
+        buttonEntrar.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Expense.class);
+
+            startActivity(intent);
+        });
     }
 }
