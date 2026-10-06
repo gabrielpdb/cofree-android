@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         buttonEntrar.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Account.class);
+            Intent intent = new Intent(this, Home.class);
 
             startActivity(intent);
         });
