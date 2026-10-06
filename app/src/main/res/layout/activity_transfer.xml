@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Transfer">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/button_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_chevron_left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Transferência"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.cofree.ui.Input
+                android:id="@+id/input_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hint="R$ 0,00"
+                app:label="Valor" />
+
+
+            <com.example.cofree.ui.InputDate
+                android:id="@+id/input_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Data" />
+
+            <com.example.cofree.ui.InputSelect
+                android:id="@+id/input_conta_origem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Conta de origem"
+                app:rightInfo="Saldo aqui" />
+
+            <com.example.cofree.ui.InputSelect
+                android:id="@+id/input_conta_destino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Conta de destino"
+                app:rightInfo="Saldo aqui" />
+
+            <com.example.cofree.ui.InputTextArea
+                android:id="@+id/input_observacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Observações" />
+
+            <com.example.cofree.ui.TextButton
+                android:id="@+id/button_excluir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:text="Excluir transferência"
+                app:type="red" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_salvar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/green_cofree"
+        android:contentDescription="Salvar"
+        android:src="@drawable/ic_check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Cofree.Circle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
