@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="@color/surface"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="8dp">
+
+
+    <ImageButton
+        android:id="@+id/tab_menu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="Menu"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_menu" />
+
+    <ImageButton
+        android:id="@+id/tab_reports"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="Relatórios"
+        android:src="@drawable/ic_reports" />
+
+    <ImageButton
+        android:id="@+id/tab_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="Início"
+        android:src="@drawable/ic_home" />
+
+    <ImageButton
+        android:id="@+id/tab_transactions"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="Transações"
+        android:src="@drawable/ic_transactions" />
+
+    <ImageButton
+        android:id="@+id/tab_action"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="Menu de ação"
+        android:src="@drawable/logo_tab" />
+</LinearLayout>
+
+
+

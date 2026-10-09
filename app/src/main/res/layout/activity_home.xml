@@ -272,64 +272,10 @@
 
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/bottom_bar"
+    <com.example.cofree.BottomTabBar
         android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:background="@color/surface"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/tab_menu"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="Início"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_menu" />
-
-        <ImageButton
-            android:id="@+id/tab_reports"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="Relatórios"
-            android:src="@drawable/ic_reports" />
-
-        <ImageButton
-            android:id="@+id/tab_home"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="Adicionar"
-            android:src="@drawable/ic_home" />
-
-        <ImageButton
-            android:id="@+id/tab_transactions"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="Cartões"
-            android:src="@drawable/ic_transactions" />
-
-        <ImageButton
-            android:id="@+id/tab_action"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="Contas"
-            android:src="@drawable/logo_tab" />
-
-    </LinearLayout>
-
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
