@@ -10,12 +10,15 @@ import android.widget.LinearLayout;
 import com.example.cofree.activities.Home;
 import com.example.cofree.activities.Menu;
 import com.example.cofree.R;
+import com.example.cofree.activities.Transactions;
 
 public class BottomTabBar extends LinearLayout {
 
     ImageButton tabMenu;
 
     ImageButton tabHome;
+
+    ImageButton tabTransactions;
 
 
     public BottomTabBar(Context context, AttributeSet attrs) {
@@ -34,6 +37,7 @@ public class BottomTabBar extends LinearLayout {
 
         tabMenu = findViewById(R.id.tab_menu);
         tabHome = findViewById(R.id.tab_home);
+        tabTransactions = findViewById(R.id.tab_transactions);
 
 
         tabMenu.setOnClickListener(v -> {
@@ -43,6 +47,11 @@ public class BottomTabBar extends LinearLayout {
         });
         tabHome.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), Home.class);
+
+            getContext().startActivity(intent);
+        });
+        tabTransactions.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Transactions.class);
 
             getContext().startActivity(intent);
         });

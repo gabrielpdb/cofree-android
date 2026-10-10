@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_data_movimentacao"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingBottom="8dp"
+    android:text="Terça-feira, 15 de setembro"
+    android:textColor="@color/text_primary"
+    android:textSize="16sp"
+    android:textStyle="bold" />
