@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    tools:context=".Home">
+    tools:context=".activities.Home">
 
     <LinearLayout
         android:id="@+id/header"
@@ -272,7 +272,7 @@
 
     </ScrollView>
 
-    <com.example.cofree.BottomTabBar
+    <com.example.cofree.ui.BottomTabBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

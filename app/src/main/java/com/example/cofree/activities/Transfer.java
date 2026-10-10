@@ -1,7 +1,6 @@
-package com.example.cofree;
+package com.example.cofree.activities;
 
 import android.os.Bundle;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -11,29 +10,32 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.cofree.R;
+import com.example.cofree.model.SelectOption;
 import com.example.cofree.ui.Input;
-import com.example.cofree.ui.InputColor;
+import com.example.cofree.ui.InputDate;
 import com.example.cofree.ui.InputSelect;
+import com.example.cofree.ui.InputTextArea;
 import com.example.cofree.ui.TextButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class Account extends AppCompatActivity {
+public class Transfer extends AppCompatActivity {
+
     ImageView buttonBack;
+    Input inputValor;
+    InputDate inputData;
+    InputTextArea inputObservacao;
+    InputSelect inputContaOrigem;
+    InputSelect inputContaDestino;
+
     TextButton buttonExcluir;
     FloatingActionButton buttonSalvar;
-
-    Input inputNome;
-    Input inputValor;
-    InputSelect inputTipo;
-    InputColor inputCor;
-    CheckBox inputRendimento;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_account);
+        setContentView(R.layout.activity_transfer);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -55,21 +57,25 @@ public class Account extends AppCompatActivity {
             Toast.makeText(this, "Botão excluir clicado", Toast.LENGTH_SHORT).show();
         });
 
-
-        inputNome = findViewById(R.id.input_nome);
         inputValor = findViewById(R.id.input_valor);
-        inputTipo = findViewById(R.id.input_tipo);
-        inputTipo.setOptions(new SelectOption[]{
-                new SelectOption(1, "Dinheiro"),
-                new SelectOption(2, "Conta Corrente"),
-                new SelectOption(3, "Investimento"),
-                new SelectOption(4, "Conta Poupança"),
-                new SelectOption(5, "Outro"),
-        });
-        inputTipo.setSelectedId(1);
+        inputData = findViewById(R.id.input_data);
+        inputContaOrigem = findViewById(R.id.input_conta_origem);
+        inputContaDestino = findViewById(R.id.input_conta_destino);
+        inputObservacao = findViewById(R.id.input_observacao);
 
-        inputCor = findViewById(R.id.input_cor);
-        inputRendimento = findViewById(R.id.input_rendimento);
+        inputContaOrigem.setOptions(new SelectOption[]{
+                new SelectOption(1, "Nubank", "R$ 1.250,00"),
+                new SelectOption(2, "Inter", "R$ 850,00"),
+                new SelectOption(3, "Carteira", "R$ 200,00")
+        });
+        inputContaOrigem.setSelectedId(1);
+        inputContaDestino.setOptions(new SelectOption[]{
+                new SelectOption(1, "Nubank", "R$ 1.250,00"),
+                new SelectOption(2, "Inter", "R$ 850,00"),
+                new SelectOption(3, "Carteira", "R$ 200,00")
+        });
+        inputContaDestino.setSelectedId(2);
+
 
     }
 }

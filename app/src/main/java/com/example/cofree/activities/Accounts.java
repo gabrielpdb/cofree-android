@@ -1,4 +1,4 @@
-package com.example.cofree;
+package com.example.cofree.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cofree.R;
+import com.example.cofree.adapter.ContaAdapter;
+import com.example.cofree.model.Conta;
 
 import java.util.ArrayList;
 import java.util.List;

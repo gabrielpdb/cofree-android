@@ -1,4 +1,4 @@
-package com.example.cofree;
+package com.example.cofree.model;
 
 public class SelectOption {
     private int id;

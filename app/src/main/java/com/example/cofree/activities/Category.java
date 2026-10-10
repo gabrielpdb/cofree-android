@@ -1,4 +1,4 @@
-package com.example.cofree;
+package com.example.cofree.activities;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -10,11 +10,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.cofree.R;
+import com.example.cofree.model.SelectOption;
 import com.example.cofree.ui.Input;
 import com.example.cofree.ui.InputColor;
-import com.example.cofree.ui.InputDate;
 import com.example.cofree.ui.InputSelect;
-import com.example.cofree.ui.InputTextArea;
 import com.example.cofree.ui.TextButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

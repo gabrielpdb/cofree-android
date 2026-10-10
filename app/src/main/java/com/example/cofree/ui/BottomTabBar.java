@@ -1,4 +1,4 @@
-package com.example.cofree;
+package com.example.cofree.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,10 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import com.example.cofree.activities.Home;
+import com.example.cofree.activities.Menu;
+import com.example.cofree.R;
 
 public class BottomTabBar extends LinearLayout {
 

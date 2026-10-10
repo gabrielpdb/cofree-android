@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.cofree.R;
-import com.example.cofree.SelectOption;
+import com.example.cofree.model.SelectOption;
 
 public class InputSelect extends LinearLayout {
 

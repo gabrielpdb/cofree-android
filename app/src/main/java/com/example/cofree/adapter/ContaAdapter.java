@@ -1,4 +1,4 @@
-package com.example.cofree;
+package com.example.cofree.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cofree.R;
+import com.example.cofree.model.Conta;
 
 import java.text.NumberFormat;
 import java.util.List;

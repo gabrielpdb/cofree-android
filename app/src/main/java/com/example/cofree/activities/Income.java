@@ -1,7 +1,6 @@
-package com.example.cofree;
+package com.example.cofree.activities;
 
 import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -11,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.cofree.R;
+import com.example.cofree.model.SelectOption;
 import com.example.cofree.ui.Input;
 import com.example.cofree.ui.InputDate;
 import com.example.cofree.ui.InputSelect;
@@ -18,9 +19,7 @@ import com.example.cofree.ui.InputTextArea;
 import com.example.cofree.ui.TextButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.w3c.dom.Text;
-
-public class Expense extends AppCompatActivity {
+public class Income extends AppCompatActivity {
 
     ImageView buttonBack;
     Input inputValor;
@@ -37,7 +36,7 @@ public class Expense extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_expense);
+        setContentView(R.layout.activity_income);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

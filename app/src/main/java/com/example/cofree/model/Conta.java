@@ -1,4 +1,4 @@
-package com.example.cofree;
+package com.example.cofree.model;
 
 public class Conta {
     private String nome;
