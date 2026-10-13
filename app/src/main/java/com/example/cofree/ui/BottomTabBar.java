@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.cofree.activities.CategoryReport;
+import com.example.cofree.activities.CreditCardExpense;
 import com.example.cofree.activities.Expense;
 import com.example.cofree.activities.Home;
 import com.example.cofree.activities.Income;
@@ -24,6 +26,7 @@ import com.example.cofree.activities.Transfer;
 public class BottomTabBar extends LinearLayout {
 
     ImageButton tabMenu;
+    ImageButton tabReports;
     ImageButton tabHome;
     ImageButton tabTransactions;
     ImageButton tabAction;
@@ -47,12 +50,18 @@ public class BottomTabBar extends LinearLayout {
                 .inflate(R.layout.bottom_tab_bar, this, true);
 
         tabMenu = findViewById(R.id.tab_menu);
+        tabReports = findViewById(R.id.tab_reports);
         tabHome = findViewById(R.id.tab_home);
         tabTransactions = findViewById(R.id.tab_transactions);
 
 
         tabMenu.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), Menu.class);
+
+            getContext().startActivity(intent);
+        });
+        tabReports.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), CategoryReport.class);
 
             getContext().startActivity(intent);
         });
@@ -149,7 +158,7 @@ public class BottomTabBar extends LinearLayout {
                 .setOnClickListener(v -> selecionarAcao(Expense.class));
 
         menuAcoes.findViewById(R.id.acao_credito)
-                .setOnClickListener(v -> selecionarAcao(Expense.class));
+                .setOnClickListener(v -> selecionarAcao(CreditCardExpense.class));
 
         menuAcoes.findViewById(R.id.acao_transferencia)
                 .setOnClickListener(v -> selecionarAcao(Transfer.class));

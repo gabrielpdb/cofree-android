@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cofree.R;
+import com.example.cofree.activities.CreditCardExpense;
 import com.example.cofree.activities.Expense;
 import com.example.cofree.activities.Income;
 import com.example.cofree.activities.Transfer;
@@ -65,7 +66,7 @@ public class MovimentacaoAdapter extends
         return new MovimentacaoViewHolder(view);
     }
 
-  
+
     @Override
     public void onBindViewHolder(
             @NonNull RecyclerView.ViewHolder holder, int position) {
@@ -190,8 +191,10 @@ public class MovimentacaoAdapter extends
                     break;
 
                 case DESPESA:
-                case CREDITO:
                     activityClass = Expense.class;
+                    break;
+                case CREDITO:
+                    activityClass = CreditCardExpense.class;
                     break;
 
                 case TRANSFERENCIA:
