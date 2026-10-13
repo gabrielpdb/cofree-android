@@ -1,6 +1,7 @@
 package com.example.cofree.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,9 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cofree.R;
+import com.example.cofree.activities.Expense;
+import com.example.cofree.activities.Income;
+import com.example.cofree.activities.Transfer;
 import com.example.cofree.model.ItemListaMovimentacao;
 import com.example.cofree.model.Movimentacao;
 
@@ -61,6 +65,7 @@ public class MovimentacaoAdapter extends
         return new MovimentacaoViewHolder(view);
     }
 
+  
     @Override
     public void onBindViewHolder(
             @NonNull RecyclerView.ViewHolder holder, int position) {
@@ -93,32 +98,40 @@ public class MovimentacaoAdapter extends
                 icone = R.drawable.ic_income;
                 cor = R.color.income;
                 break;
+
             case DESPESA:
                 icone = R.drawable.ic_expense;
                 cor = R.color.expense;
                 break;
+
             case TRANSFERENCIA:
                 icone = R.drawable.ic_transfer;
                 cor = R.color.transfer;
                 break;
+
             case CREDITO:
                 icone = R.drawable.ic_credit_card;
                 cor = R.color.credit;
                 break;
+
             case RENDIMENTO:
                 icone = R.drawable.ic_income;
                 cor = R.color.income;
                 break;
+
             case ALTERACAO:
                 icone = R.drawable.ic_transfer;
                 cor = R.color.transfer;
                 break;
+
             default:
                 icone = R.drawable.ic_wallet;
                 cor = R.color.text_secondary;
+                break;
         }
 
         movimentacaoHolder.imageTipo.setImageResource(icone);
+
         movimentacaoHolder.imageTipo.setColorFilter(
                 ContextCompat.getColor(context, cor));
 
@@ -129,9 +142,13 @@ public class MovimentacaoAdapter extends
 
         if (movimentacao.getTipo() == Movimentacao.Tipo.TRANSFERENCIA) {
             detalhe = movimentacao.getConta();
-        } else if (movimentacao.getTipo() == Movimentacao.Tipo.RENDIMENTO
-                || movimentacao.getTipo() == Movimentacao.Tipo.ALTERACAO) {
+
+        } else if (
+                movimentacao.getTipo() == Movimentacao.Tipo.RENDIMENTO
+                        || movimentacao.getTipo() == Movimentacao.Tipo.ALTERACAO) {
+
             detalhe = movimentacao.getDetalhe();
+
         } else if (movimentacao.getTipo() == Movimentacao.Tipo.CREDITO) {
             detalhe = movimentacao.getConta();
         }
@@ -147,9 +164,12 @@ public class MovimentacaoAdapter extends
 
         if (movimentacao.getTipo() == Movimentacao.Tipo.TRANSFERENCIA
                 && movimentacao.getContaDestino() != null) {
+
             secundario = movimentacao.getContaDestino();
+
         } else if (movimentacao.getTipo() == Movimentacao.Tipo.CREDITO
                 && movimentacao.getDetalhe() != null) {
+
             secundario = movimentacao.getDetalhe();
         }
 
@@ -159,6 +179,32 @@ public class MovimentacaoAdapter extends
             movimentacaoHolder.textValorSecundario.setVisibility(View.VISIBLE);
             movimentacaoHolder.textValorSecundario.setText(secundario);
         }
+
+        // Clique para abrir a tela de cadastro correspondente
+        movimentacaoHolder.itemView.setOnClickListener(v -> {
+            Class<?> activityClass;
+
+            switch (movimentacao.getTipo()) {
+                case RECEITA:
+                    activityClass = Income.class;
+                    break;
+
+                case DESPESA:
+                case CREDITO:
+                    activityClass = Expense.class;
+                    break;
+
+                case TRANSFERENCIA:
+                    activityClass = Transfer.class;
+                    break;
+
+                default:
+                    return;
+            }
+
+            Intent intent = new Intent(v.getContext(), activityClass);
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override

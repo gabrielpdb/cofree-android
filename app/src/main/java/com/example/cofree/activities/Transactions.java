@@ -1,6 +1,9 @@
 package com.example.cofree.activities;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +32,17 @@ public class Transactions extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        ImageButton buttonFilter = findViewById(R.id.button_filter);
+        LinearLayout areaFiltros = findViewById(R.id.area_filtros);
+
+        buttonFilter.setOnClickListener(v -> {
+            if (areaFiltros.getVisibility() == View.VISIBLE) {
+                areaFiltros.setVisibility(View.GONE);
+            } else {
+                areaFiltros.setVisibility(View.VISIBLE);
+            }
         });
 
 

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp">
+
+    <!-- Cabeçalho do cartão -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image_bandeira"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="Bandeira do cartão"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/text_nome_cartao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="Sicredi"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_limite_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 4.000,00"
+            android:textColor="#0084FF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Barra de utilização do limite -->
+    <LinearLayout
+        android:id="@+id/barra_limite"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/medium"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/barra_limite_usado"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/expense" />
+
+        <View
+            android:id="@+id/barra_limite_disponivel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/income" />
+
+    </LinearLayout>
+
+    <!-- Limites usado e disponível -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_limite_usado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="R$ 3.345,15"
+            android:textColor="@color/expense"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_limite_disponivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 654,85"
+            android:textColor="@color/income"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Separador entre cartões -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transfer" />
+
+</LinearLayout>

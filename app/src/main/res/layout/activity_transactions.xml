@@ -160,6 +160,7 @@
             </LinearLayout>
 
             <ImageButton
+                android:id="@+id/button_filter"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginLeft="16dp"
@@ -168,6 +169,194 @@
                 android:stateListAnimator="@null" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/area_filtros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:visibility="gone">
+
+            <!-- Cabeçalho -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Filtros"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/button_limpar_filtros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Limpar"
+                    android:textColor="@color/income"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <!-- Tipos de movimentação -->
+            <LinearLayout
+                android:id="@+id/filtros_tipos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingVertical="20dp">
+
+                <ImageButton
+                    android:id="@+id/filtro_receita"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Receitas"
+                    android:src="@drawable/ic_income"
+                    app:tint="@color/income" />
+
+                <ImageButton
+                    android:id="@+id/filtro_despesa"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Despesas"
+                    android:src="@drawable/ic_expense"
+                    app:tint="@color/expense" />
+
+                <ImageButton
+                    android:id="@+id/filtro_transferencia"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Transferências"
+                    android:src="@drawable/ic_transfer"
+                    app:tint="@color/transfer" />
+
+                <ImageButton
+                    android:id="@+id/filtro_rendimento"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Rendimentos"
+                    android:src="@drawable/ic_income"
+                    app:tint="@color/income" />
+
+                <ImageButton
+                    android:id="@+id/filtro_credito"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Crédito"
+                    android:src="@drawable/ic_credit_card"
+                    app:tint="@color/credit" />
+
+            </LinearLayout>
+
+            <!-- Receitas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Receitas"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filtro_categoria_receita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Todas"
+                    android:textColor="@color/income"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="Selecionar categorias de receita"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/text_primary" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/transfer" />
+
+            <!-- Despesas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Despesas"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/filtro_categoria_despesa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Todas"
+                    android:textColor="@color/income"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="Selecionar categorias de despesa"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/text_primary" />
+
+            </LinearLayout>
+
+            <!-- Pesquisa -->
+            <EditText
+                android:id="@+id/input_pesquisar_movimentacao"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input"
+                android:hint="Pesquisar"
+                android:inputType="text"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

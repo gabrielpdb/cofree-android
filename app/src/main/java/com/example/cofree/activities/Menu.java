@@ -15,6 +15,7 @@ import com.example.cofree.R;
 public class Menu extends AppCompatActivity {
 
     LinearLayout buttonAccounts;
+    LinearLayout buttonCards;
     LinearLayout buttonCategories;
     LinearLayout buttonLogout;
 
@@ -33,6 +34,14 @@ public class Menu extends AppCompatActivity {
 
         buttonAccounts.setOnClickListener(v -> {
             Intent intent = new Intent(this, Accounts.class);
+
+            startActivity(intent);
+        });
+
+        buttonCards = findViewById(R.id.button_credit_cards);
+
+        buttonCards.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CreditCards.class);
 
             startActivity(intent);
         });

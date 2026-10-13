@@ -177,6 +177,7 @@
                     app:cardElevation="0dp">
 
                     <LinearLayout
+                        android:id="@+id/button_receitas"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -225,6 +226,7 @@
                     app:cardElevation="0dp">
 
                     <LinearLayout
+                        android:id="@+id/button_despesas"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
