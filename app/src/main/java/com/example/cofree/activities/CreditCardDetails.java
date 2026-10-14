@@ -48,6 +48,7 @@ public class CreditCardDetails extends AppCompatActivity {
         buttonBack = findViewById(R.id.button_back);
         buttonEditCard = findViewById(R.id.button_edit_card);
         buttonNewCreditExpense = findViewById(R.id.button_new_credit_expense);
+        buttonVerFatura = findViewById(R.id.button_ver_fatura);
 
         buttonBack.setOnClickListener(v -> {
             finish();
@@ -58,6 +59,11 @@ public class CreditCardDetails extends AppCompatActivity {
         });
         buttonNewCreditExpense.setOnClickListener(v -> {
             Intent intent = new Intent(this, CreditCardExpense.class);
+            startActivity(intent);
+        });
+
+        buttonVerFatura.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Invoice.class);
             startActivity(intent);
         });
 

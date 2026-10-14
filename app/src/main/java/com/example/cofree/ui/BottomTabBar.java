@@ -36,6 +36,10 @@ public class BottomTabBar extends LinearLayout {
     private View menuAcoes;
     private boolean menuAberto = false;
 
+    private View overlayReports;
+    private View menuReports;
+    private boolean menuReportsAberto = false;
+
     public BottomTabBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
@@ -62,9 +66,11 @@ public class BottomTabBar extends LinearLayout {
             getContext().startActivity(intent);
         });
         tabReports.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), PatrimonyEvolution.class);
-
-            getContext().startActivity(intent);
+            if (menuReportsAberto) {
+                fecharMenuReports();
+            } else {
+                abrirMenuReports();
+            }
         });
         tabHome.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), Home.class);
@@ -167,6 +173,80 @@ public class BottomTabBar extends LinearLayout {
 
     private void selecionarAcao(Class<?> activityClass) {
         fecharMenuAcoes();
+
+        Intent intent = new Intent(getContext(), activityClass);
+        getContext().startActivity(intent);
+    }
+
+    private void abrirMenuReports() {
+        if (!(getContext() instanceof Activity)) return;
+
+        Activity activity = (Activity) getContext();
+
+        FrameLayout raiz = activity.findViewById(android.R.id.content);
+
+        // Overlay escuro
+        overlayReports = new View(getContext());
+        overlayReports.setBackgroundColor(0x99000000);
+
+        FrameLayout.LayoutParams overlayParams =
+                new FrameLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                );
+
+        raiz.addView(overlayReports, overlayParams);
+
+        // Conteúdo do menu
+        menuReports = LayoutInflater.from(getContext())
+                .inflate(R.layout.menu_reports, raiz, false);
+
+        configurarReports();
+
+        // Alinha o menu à esquerda
+        FrameLayout.LayoutParams menuParams =
+                new FrameLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        Gravity.BOTTOM | Gravity.START
+                );
+
+        menuParams.leftMargin = dpToPx(8);
+        menuParams.bottomMargin = getHeight() + dpToPx(24);
+
+        raiz.addView(menuReports, menuParams);
+
+        overlayReports.setOnClickListener(v -> fecharMenuReports());
+
+        menuReportsAberto = true;
+    }
+
+    private void fecharMenuReports() {
+        if (overlayReports != null && overlayReports.getParent() != null) {
+            ((ViewGroup) overlayReports.getParent()).removeView(overlayReports);
+        }
+
+        if (menuReports != null && menuReports.getParent() != null) {
+            ((ViewGroup) menuReports.getParent()).removeView(menuReports);
+        }
+
+        overlayReports = null;
+        menuReports = null;
+        menuReportsAberto = false;
+    }
+
+    private void configurarReports() {
+        if (menuReports == null) return;
+
+        menuReports.findViewById(R.id.acao_relatorio_categoria)
+                .setOnClickListener(v -> selecionarReport(CategoryReport.class));
+
+        menuReports.findViewById(R.id.acao_evolucao_patrimonio)
+                .setOnClickListener(v -> selecionarReport(PatrimonyEvolution.class));
+    }
+
+    private void selecionarReport(Class<?> activityClass) {
+        fecharMenuReports();
 
         Intent intent = new Intent(getContext(), activityClass);
         getContext().startActivity(intent);
