@@ -79,25 +79,31 @@
         </LinearLayout>
     </LinearLayout>
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_tab_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_home_main"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:paddingBottom="16dp">
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp">
 
+            <!-- Patrimônio total -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -122,9 +128,11 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="8dp"
+                            android:id="@+id/button_ocultar_saldo"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            android:contentDescription="Ocultar patrimônio"
                             android:src="@drawable/ic_visibility_off" />
                     </LinearLayout>
 
@@ -147,18 +155,18 @@
                     app:backgroundTint="@color/green_cofree"
                     app:fabCustomSize="40dp"
                     app:maxImageSize="22dp"
-
                     app:shapeAppearanceOverlay="@style/ShapeAppearance.Cofree.Circle" />
 
-
                 <ImageView
+                    android:id="@+id/button_evolucao_patrimonio"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="Ver evolução do patrimônio"
                     android:src="@drawable/ic_chevron_right" />
-
-
             </LinearLayout>
 
+            <!-- Receitas e despesas -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,11 +174,10 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <!-- Receita -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="6dp"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/surface"
                     app:cardCornerRadius="16dp"
@@ -182,7 +189,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="16dp">
+                        android:padding="12dp">
 
                         <ImageView
                             android:layout_width="40dp"
@@ -193,7 +200,7 @@
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
@@ -201,25 +208,23 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Receitas"
-                                android:textSize="12sp" />
+                                android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/txt_total_receitas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="R$ 5.015,00"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
                         </LinearLayout>
-
                     </LinearLayout>
-
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="6dp"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/surface"
                     app:cardCornerRadius="16dp"
@@ -231,7 +236,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:padding="16dp">
+                        android:padding="12dp">
 
                         <ImageView
                             android:layout_width="40dp"
@@ -242,7 +247,7 @@
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
@@ -250,31 +255,61 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Despesas"
-                                android:textSize="12sp" />
+                                android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/txt_total_despesas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="R$ 3.925,00"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
                         </LinearLayout>
-
                     </LinearLayout>
-
                 </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
 
-                <!-- Despesa -->
+            <!-- Gráfico de evolução do patrimônio -->
+            <com.example.cofree.ui.PatrimonyLineChartView
+                android:id="@+id/grafico_evolucao_patrimonio"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_patrimony_card" />
 
+            <!-- Últimos lançamentos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_patrimony_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Últimos lançamentos"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_ultimos_lancamentos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_movimentacao" />
+
         </LinearLayout>
-
-
     </ScrollView>
 
     <com.example.cofree.ui.BottomTabBar
+        android:id="@+id/bottom_tab_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
