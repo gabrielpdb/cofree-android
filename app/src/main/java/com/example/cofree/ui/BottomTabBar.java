@@ -20,6 +20,7 @@ import com.example.cofree.activities.Home;
 import com.example.cofree.activities.Income;
 import com.example.cofree.activities.Menu;
 import com.example.cofree.R;
+import com.example.cofree.activities.PatrimonyEvolution;
 import com.example.cofree.activities.Transactions;
 import com.example.cofree.activities.Transfer;
 
@@ -61,7 +62,7 @@ public class BottomTabBar extends LinearLayout {
             getContext().startActivity(intent);
         });
         tabReports.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), CategoryReport.class);
+            Intent intent = new Intent(getContext(), PatrimonyEvolution.class);
 
             getContext().startActivity(intent);
         });
