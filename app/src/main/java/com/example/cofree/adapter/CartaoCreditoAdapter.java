@@ -1,6 +1,7 @@
 package com.example.cofree.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cofree.R;
+import com.example.cofree.activities.CreditCardDetails;
 import com.example.cofree.model.CartaoCredito;
 
 import java.text.NumberFormat;
@@ -99,6 +101,11 @@ public class CartaoCreditoAdapter
         disponivelParams.width = 0;
         disponivelParams.weight = (float) percentualDisponivel;
         holder.barraDisponivel.setLayoutParams(disponivelParams);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, CreditCardDetails.class);
+            context.startActivity(intent);
+        });
     }
 
     private int obterBandeira(String bandeira) {
