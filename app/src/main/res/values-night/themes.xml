@@ -5,4 +5,10 @@
         <item name="colorPrimaryContainer">@color/text_primary</item>
         <item name="colorAccent">@color/text_secondary</item>
     </style>
+
+    <style name="ThemeOverlay_Cofree_Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/medium</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:windowBackground">@color/medium</item>
+    </style>
 </resources>

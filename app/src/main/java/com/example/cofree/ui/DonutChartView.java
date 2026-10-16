@@ -7,6 +7,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.example.cofree.R;
+
 public class DonutChartView extends View {
 
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -47,7 +49,12 @@ public class DonutChartView extends View {
         paint.setStrokeWidth(dp(36));
         paint.setStrokeCap(Paint.Cap.BUTT);
 
-        textPaint.setColor(0xFFFFFFFF);
+        textPaint.setColor(
+                androidx.core.content.ContextCompat.getColor(
+                        getContext(),
+                        R.color.text_primary
+                )
+        );
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTextSize(sp(16));
         textPaint.setTypeface(
@@ -123,7 +130,13 @@ public class DonutChartView extends View {
                 + textPaint.descent()) / 2f;
 
         textPaint.setTextAlign(Paint.Align.CENTER);
-        textPaint.setColor(0xFFFFFFFF);
+        textPaint.setTextAlign(Paint.Align.CENTER);
+        textPaint.setColor(
+                androidx.core.content.ContextCompat.getColor(
+                        getContext(),
+                        R.color.text_primary
+                )
+        );
         textPaint.setTypeface(
                 android.graphics.Typeface.create(
                         "sans-serif",

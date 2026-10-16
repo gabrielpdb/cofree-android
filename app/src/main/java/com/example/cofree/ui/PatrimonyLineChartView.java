@@ -21,10 +21,9 @@ public class PatrimonyLineChartView extends View {
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final List<PatrimonyDataPoint> dados = new ArrayList<>();
 
-    private final int corLinha = 0xFFE4F824;
+    private final int corLinha = R.color.income;
     private final int corGrade = 0xFF555258;
     private final int corTexto = 0xFFB0ADB2;
-    private final int corFundo = 0xFF272427;
 
     private final NumberFormat formatoMoeda =
             NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
@@ -59,15 +58,17 @@ public class PatrimonyLineChartView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        paint.setColor(corFundo);
+        paint.setColor(
+                androidx.core.content.ContextCompat.getColor(
+                        getContext(),
+                        R.color.medium
+                )
+        );
+
         paint.setStyle(Paint.Style.FILL);
 
-        android.graphics.RectF fundo = new android.graphics.RectF(
-                0,
-                0,
-                getWidth(),
-                getHeight()
-        );
+        android.graphics.RectF fundo =
+                new android.graphics.RectF(0, 0, getWidth(), getHeight());
 
         canvas.drawRoundRect(fundo, dp(12), dp(12), paint);
 
@@ -78,7 +79,7 @@ public class PatrimonyLineChartView extends View {
         float largura = getWidth();
         float altura = getHeight();
 
-        float margemEsquerda = dp(68);
+        float margemEsquerda = dp(32);
         float margemDireita = dp(16);
         float margemSuperior = dp(20);
         float margemInferior = dp(36);
@@ -166,7 +167,12 @@ public class PatrimonyLineChartView extends View {
             }
         }
 
-        paint.setColor(corLinha);
+        paint.setColor(
+                androidx.core.content.ContextCompat.getColor(
+                        getContext(),
+                        R.color.income
+                )
+        );
         paint.setStrokeWidth(dp(2.5f));
         paint.setStyle(Paint.Style.STROKE);
         canvas.drawPath(caminho, paint);
@@ -192,7 +198,12 @@ public class PatrimonyLineChartView extends View {
                     / (maximo - minimo)) * graficoAltura;
 
             paint.setStyle(Paint.Style.FILL);
-            paint.setColor(corLinha);
+            paint.setColor(
+                    androidx.core.content.ContextCompat.getColor(
+                            getContext(),
+                            R.color.income
+                    )
+            );
             canvas.drawCircle(x, y, dp(4), paint);
 
             if (i % intervaloRotulos == 0 || i == dados.size() - 1) {

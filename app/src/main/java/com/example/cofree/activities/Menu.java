@@ -18,6 +18,7 @@ public class Menu extends AppCompatActivity {
     LinearLayout buttonCards;
     LinearLayout buttonCategories;
     LinearLayout buttonLogout;
+    LinearLayout buttonProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,14 @@ public class Menu extends AppCompatActivity {
 
         buttonCategories.setOnClickListener(v -> {
             Intent intent = new Intent(this, Categories.class);
+
+            startActivity(intent);
+        });
+
+        buttonProfile = findViewById(R.id.button_profile);
+
+        buttonProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Profile.class);
 
             startActivity(intent);
         });
