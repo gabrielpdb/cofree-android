@@ -69,11 +69,13 @@
         app:layout_constraintTop_toBottomOf="@id/acesse">
 
         <com.example.cofree.ui.Input
+            android:id="@+id/input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hint="E-mail" />
 
         <com.example.cofree.ui.Input
+            android:id="@+id/input_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hint="Senha"

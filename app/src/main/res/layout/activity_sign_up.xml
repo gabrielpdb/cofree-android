@@ -52,12 +52,14 @@
             android:paddingHorizontal="32dp"
             android:paddingBottom="360dp">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <com.example.cofree.ui.Input
+                    android:id="@+id/input_nome"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -66,6 +68,7 @@
                     app:label="Nome" />
 
                 <com.example.cofree.ui.Input
+                    android:id="@+id/input_sobrenome"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -75,18 +78,28 @@
             </LinearLayout>
 
             <com.example.cofree.ui.Input
+                android:id="@+id/input_telefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hint="(00) 00000-0000"
+                app:label="Telefone" />
+
+            <com.example.cofree.ui.Input
+                android:id="@+id/input_nascimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hint="01/01/2000"
                 app:label="Data de nascimento" />
 
             <com.example.cofree.ui.Input
+                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hint="joaodasilva@cofree.com"
                 app:label="Endereço de e-mail" />
 
             <com.example.cofree.ui.Input
+                android:id="@+id/input_senha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hint="************"
@@ -94,12 +107,12 @@
                 app:showVisibility="true" />
 
             <com.example.cofree.ui.Input
+                android:id="@+id/input_confirmar_senha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hint="************"
                 app:label="Confirmação de senha"
                 app:showVisibility="true" />
-
 
             <com.example.cofree.ui.TextButton
                 android:id="@+id/button_cadastrar"

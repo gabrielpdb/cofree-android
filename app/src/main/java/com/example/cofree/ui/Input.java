@@ -74,4 +74,17 @@ public class Input extends LinearLayout {
         input.setHint(hintText);
     }
 
+    public String getValue() {
+        return input.getText().toString();
+    }
+
+    public void setError(String message) {
+        input.setError(message);
+    }
+
+    public void clearError() {
+        input.setError(null);
+    }
+
+
 }

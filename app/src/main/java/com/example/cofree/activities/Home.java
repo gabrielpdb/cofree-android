@@ -2,6 +2,7 @@ package com.example.cofree.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cofree.R;
 import com.example.cofree.activities.PatrimonyEvolution;
 import com.example.cofree.adapter.MovimentacaoAdapter;
+import com.example.cofree.api.ApiClient;
+import com.example.cofree.api.ApiResponse;
 import com.example.cofree.model.ItemListaMovimentacao;
 import com.example.cofree.model.Movimentacao;
 import com.example.cofree.model.PatrimonyDataPoint;
@@ -24,6 +27,8 @@ import com.example.cofree.ui.PatrimonyLineChartView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Home extends AppCompatActivity {
 
@@ -61,6 +66,8 @@ public class Home extends AppCompatActivity {
         configurarGrafico();
         configurarUltimosLancamentos();
         configurarNavegacao();
+
+        testApiConnection();
     }
 
     private void configurarPatrimonio() {
@@ -226,5 +233,40 @@ public class Home extends AppCompatActivity {
                 tela + ": navegação pendente",
                 android.widget.Toast.LENGTH_SHORT
         ).show();
+    }
+
+    //TESTANDO CONEXÃO API
+    private void testApiConnection() {
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        executor.execute(() -> {
+
+            try {
+
+                ApiClient apiClient = new ApiClient();
+
+                ApiResponse response = apiClient.request(
+                        "/users/info",
+                        "GET",
+                        null
+                );
+
+                Log.d("API_TEST", "Status: " + response.getStatusCode());
+
+                Log.d("API_TEST", "Body: " + response.getBody());
+
+            } catch (Exception e) {
+
+                Log.e("API_TEST", "Erro ao conectar com a API", e);
+
+            } finally {
+
+                executor.shutdown();
+
+            }
+
+        });
+
     }
 }
