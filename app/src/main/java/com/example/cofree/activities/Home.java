@@ -19,6 +19,7 @@ import com.example.cofree.activities.PatrimonyEvolution;
 import com.example.cofree.adapter.MovimentacaoAdapter;
 import com.example.cofree.api.ApiClient;
 import com.example.cofree.api.ApiResponse;
+import com.example.cofree.auth.TokenManager;
 import com.example.cofree.model.ItemListaMovimentacao;
 import com.example.cofree.model.Movimentacao;
 import com.example.cofree.model.PatrimonyDataPoint;
@@ -236,6 +237,7 @@ public class Home extends AppCompatActivity {
     }
 
     //TESTANDO CONEXÃO API
+
     private void testApiConnection() {
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -244,7 +246,7 @@ public class Home extends AppCompatActivity {
 
             try {
 
-                ApiClient apiClient = new ApiClient(this);
+                ApiClient apiClient = new ApiClient(Home.this);
 
                 ApiResponse response = apiClient.request(
                         "/users/info",
@@ -253,7 +255,6 @@ public class Home extends AppCompatActivity {
                 );
 
                 Log.d("API_TEST", "Status: " + response.getStatusCode());
-
                 Log.d("API_TEST", "Body: " + response.getBody());
 
             } catch (Exception e) {
@@ -265,8 +266,7 @@ public class Home extends AppCompatActivity {
                 executor.shutdown();
 
             }
-
         });
-
     }
+
 }

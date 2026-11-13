@@ -42,6 +42,20 @@ public class MainActivity extends AppCompatActivity {
 
         authRepository = new AuthRepository(this);
 
+        TokenManager tokenManager = new TokenManager(this);
+
+        String token = tokenManager.getToken();
+        String refreshToken = tokenManager.getRefreshToken();
+
+        if (token != null && !token.isEmpty()
+                && refreshToken != null && !refreshToken.isEmpty()) {
+
+            Intent intent = new Intent(this, Home.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 

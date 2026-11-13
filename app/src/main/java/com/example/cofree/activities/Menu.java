@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.cofree.R;
+import com.example.cofree.auth.SessionManager;
 
 public class Menu extends AppCompatActivity {
 
@@ -66,9 +67,7 @@ public class Menu extends AppCompatActivity {
         buttonLogout = findViewById(R.id.button_logout);
 
         buttonLogout.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-
-            startActivity(intent);
+            new SessionManager(Menu.this).logout();
         });
     }
 }
