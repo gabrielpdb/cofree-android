@@ -1,5 +1,7 @@
 package com.example.cofree.auth;
 
+import android.content.Context;
+
 import com.example.cofree.api.ApiClient;
 import com.example.cofree.api.ApiResponse;
 
@@ -12,8 +14,8 @@ public class AuthRepository {
 
     private final ApiClient apiClient;
 
-    public AuthRepository() {
-        this.apiClient = new ApiClient();
+    public AuthRepository(Context context) {
+        this.apiClient = new ApiClient(context);
     }
 
     public ApiResponse login(String email, String password)

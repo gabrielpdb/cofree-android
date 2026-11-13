@@ -1,5 +1,9 @@
 package com.example.cofree.api;
 
+import android.content.Context;
+
+import com.example.cofree.auth.TokenManager;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +15,12 @@ import java.nio.charset.StandardCharsets;
 import org.json.JSONObject;
 
 public class ApiClient {
+
+    private final TokenManager tokenManager;
+
+    public ApiClient(Context context) {
+        this.tokenManager = new TokenManager(context);
+    }
 
     public ApiResponse request(
             String endpoint,
@@ -28,6 +38,19 @@ public class ApiClient {
                     "Accept",
                     "application/json"
             );
+
+            String token = tokenManager.getToken();
+
+            if (token != null && !token.isEmpty()
+                    && !endpoint.equals("/login")
+                    && !endpoint.equals("/login/refresh")
+                    && !endpoint.equals("/users")) {
+
+                connection.setRequestProperty(
+                        "Authorization",
+                        "Bearer " + token
+                );
+            }
 
             if (body != null) {
 

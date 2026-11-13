@@ -28,9 +28,9 @@ import java.util.concurrent.Executors;
 
 public class SignUp extends AppCompatActivity {
 
-    private final UserRepository userRepository = new UserRepository();
     private final ExecutorService executor =
             Executors.newSingleThreadExecutor();
+    private UserRepository userRepository;
     private Input inputNome;
     private Input inputSobrenome;
     private Input inputNascimento;
@@ -45,6 +45,8 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        userRepository = new UserRepository(this);
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_sign_up);

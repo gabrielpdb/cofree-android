@@ -1,5 +1,6 @@
 package com.example.cofree.users;
 
+import com.example.cofree.activities.SignUp;
 import com.example.cofree.api.ApiClient;
 import com.example.cofree.api.ApiResponse;
 
@@ -12,8 +13,8 @@ public class UserRepository {
 
     private final ApiClient apiClient;
 
-    public UserRepository() {
-        this.apiClient = new ApiClient();
+    public UserRepository(SignUp context) {
+        this.apiClient = new ApiClient(context);
     }
 
     public ApiResponse createUser(

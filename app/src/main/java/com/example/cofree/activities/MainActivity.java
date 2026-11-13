@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.cofree.R;
 import com.example.cofree.api.ApiResponse;
 import com.example.cofree.auth.AuthRepository;
+import com.example.cofree.auth.TokenManager;
 import com.example.cofree.ui.Input;
 import com.example.cofree.ui.TextButton;
 import com.example.cofree.validation.InputValidator;
@@ -27,9 +28,9 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final AuthRepository authRepository = new AuthRepository();
     private final ExecutorService executor =
             Executors.newSingleThreadExecutor();
+    private AuthRepository authRepository;
     private Input inputEmail;
     private Input inputSenha;
     private TextButton buttonCadastro;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        authRepository = new AuthRepository(this);
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         buttonEntrar.setOnClickListener(v -> realizarLogin());
     }
 
+
     private void realizarLogin() {
 
         boolean emailValido = InputValidator.email(inputEmail);
@@ -104,10 +108,12 @@ public class MainActivity extends AppCompatActivity {
 
                     String token = json.getString("token");
                     String refreshToken = json.getString("refresh_token");
-
                     JSONObject user = json.getJSONObject("user");
 
-                    salvarAutenticacao(token, refreshToken, user);
+                    TokenManager tokenManager = new TokenManager(this);
+
+                    tokenManager.saveTokens(token, refreshToken);
+                    tokenManager.saveUser(user.toString());
 
                     runOnUiThread(() -> {
                         Toast.makeText(
@@ -125,7 +131,10 @@ public class MainActivity extends AppCompatActivity {
 
                     String mensagem = json.optString(
                             "error",
-                            "Não foi possível realizar o login."
+                            json.optString(
+                                    "message",
+                                    "Não foi possível realizar o login."
+                            )
                     );
 
                     runOnUiThread(() -> {
@@ -156,23 +165,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void salvarAutenticacao(
-            String token,
-            String refreshToken,
-            JSONObject user
-    ) {
-
-        SharedPreferences preferences = getSharedPreferences(
-                "cofree_auth",
-                MODE_PRIVATE
-        );
-
-        preferences.edit()
-                .putString("token", token)
-                .putString("refresh_token", refreshToken)
-                .putString("user", user.toString())
-                .apply();
-    }
 
     @Override
     protected void onDestroy() {

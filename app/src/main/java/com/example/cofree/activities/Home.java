@@ -244,7 +244,7 @@ public class Home extends AppCompatActivity {
 
             try {
 
-                ApiClient apiClient = new ApiClient();
+                ApiClient apiClient = new ApiClient(this);
 
                 ApiResponse response = apiClient.request(
                         "/users/info",
